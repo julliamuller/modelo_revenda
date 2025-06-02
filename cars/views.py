@@ -26,10 +26,9 @@ class newCarCreateView(CreateView):
   model = Car
   form_class = CarModelForm
   template_name = 'new_car.html'
-  sucess_url = '/cars/'
-
+  success_url  = '/cars/'
   def get_success_url(self):
-    return reverse_lazy('car_detail', kwargs={'pk', self.object.pk})
+    return reverse_lazy('car_detail', kwargs={'pk': self.object.pk})
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class carUpdateView(UpdateView):
